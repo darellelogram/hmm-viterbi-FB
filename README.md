@@ -19,7 +19,7 @@ in the case of stock price changes is somewhat arbitrary. Obviously, then, we ha
 Instead, we run the Forward-Backward algorithm to learn the output and transition probabilities, 
 which we then feed into a modified form of the Viterbi algorithm to predict the most likely price change to occur
 immediately following each sequence of price changes. Our Forward-Backward algorithm was trained with 3 hidden states which, when tested, appeared to 
-approximate negative (-6 to -2), positive (2 to 6) and near-zero (-1 to 1) values respectively. 
+approximate negative (-6 to -1), positive (1 to 6) and zero (0) values respectively. 
 The assignment pattern varies depending on the initialisation of the random seed.
 In other initialisations that we tried, the hidden states seem to approximate extreme (-6,-5, 5, 6), middling (-4,-3,-2,2,3,4) and near-zero (-1,0,1) values respectively.
 This added ambiguity is expected as it was left to the algorithm to learn the transition and output probabilities, with no supervision.
