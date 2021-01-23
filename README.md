@@ -14,10 +14,15 @@ The order of appearance of each sequence may not reflect real time, and sequence
 while some sequences might overlap with others (i.e. contain subsequences of price changes that appear in other sequences 
 due to collection of data from overlapping time frames).
 Therefore, we modelled each sequence as a standalone Markov chain, independent of the other sequences in the list in our dataset.
-`cat_price_changes_train.txt` is not pre-tagged (unsupervised). Because of the arbitrariness of the assignment of emissions to hidden states 
-in the case of stock price changes, we have no supervised dataset for the Caterpillar's. Instead, we run the Forward-Backward algorithm to learn the 
-output and transition probabilities, which we then feed into a modified form of the Viterbi algorithm to predict the most likely price change to occur
+`cat_price_changes_train.txt` is not pre-tagged (unsupervised). As compared to POS-tagging, the assignment of emissions to hidden states 
+in the case of stock price changes is somewhat arbitrary. Obviously, then, we have no supervised version for this dataset.
+Instead, we run the Forward-Backward algorithm to learn the output and transition probabilities, 
+which we then feed into a modified form of the Viterbi algorithm to predict the most likely price change to occur
 immediately following each sequence of price changes. Our Forward-Backward algorithm was trained with 3 hidden states which, when tested, appeared to 
-approximate negative, positive and zero values respectively. Our predictions are in `cat_predictions.txt`
+approximate negative (-6 to -2), positive (2 to 6) and near-zero (-1 to 1) values respectively. 
+The assignment pattern varies depending on the initialisation of the random seed.
+In other initialisations that we tried, the hidden states seem to approximate extreme (-6,-5, 5, 6), middling (-4,-3,-2,2,3,4) and near-zero (-1,0,1) values respectively.
+This added ambiguity is expected as it was left to the algorithm to learn the transition and output probabilities, with no supervision.
+Our predictions are in `cat_predictions.txt`.
 
 More details in our report, `BT3102_Project_Q6-7_report.pdf`.
