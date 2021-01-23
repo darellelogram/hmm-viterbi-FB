@@ -10,7 +10,7 @@ Using the Viterbi algorithm, we achieved a respectable tagging accuracy of 76%.
 
 
 2. a list of sequences of price changes between successive transactions of Caterpillar stock, ranging from -6 cents to 6 cents.
-The order of appearance of each sequence may not reflect real time, and sequences may not be consecutive (there might be time gaps between adjacent sequences), 
+The order of appearance between sequences may not reflect real time - sequences may not be consecutive (there might be time gaps between adjacent sequences), 
 while some sequences might overlap with others (i.e. contain subsequences of price changes that appear in other sequences 
 due to collection of data from overlapping time frames).
 Therefore, we modelled each sequence as a standalone Markov chain, independent of the other sequences in the list in our dataset.
