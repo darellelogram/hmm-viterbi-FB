@@ -10,8 +10,9 @@ Using the Viterbi algorithm, we achieved a respectable tagging accuracy of 76%.
 
 
 2. a list of sequences of price changes between successive transactions of Caterpillar stock, ranging from -6 cents to 6 cents.
-The order of appearance of each sequence may not reflect real time, and sequences may not be consecutive (there might be gaps between consecutive sequences), 
-while some sequences might contain subsequences of price changes that overlap with other sequences. 
+The order of appearance of each sequence may not reflect real time, and sequences may not be consecutive (there might be time gaps between adjacent sequences), 
+while some sequences might overlap with others (i.e. contain subsequences of price changes that appear in other sequences 
+due to collection of data from overlapping time frames).
 Therefore, we modelled each sequence as a standalone Markov chain, independent of the other sequences in the list in our dataset.
 `cat_price_changes_train.txt` is not pre-tagged (unsupervised). Because of the arbitrariness of the assignment of emissions to hidden states 
 in the case of stock price changes, we have no supervised dataset for the Caterpillar's. Instead, we run the Forward-Backward algorithm to learn the 
